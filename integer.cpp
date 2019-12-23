@@ -54,7 +54,7 @@ void add(string &int1, string &int2, string &result){
     {
         b[i] = int2.at(int2.size()-i-1) - '0';
     }
-
+as
     for (int i = 0; i < max(int1.size(), int2.size()); i++)
     {
         res[i] += a[i] + b[i];
