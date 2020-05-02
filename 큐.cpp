@@ -1,6 +1,12 @@
 #include <iostream>
 using namespace std;
 
+class Queue{
+    private:
+    
+};
+
+
 int main(){
     int num;
     cin >> num;

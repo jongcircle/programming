@@ -12,8 +12,7 @@ int main(){
 
     for (int i = 1; i < su+1; i++) num[i] = i;
 
-    int cnt = 5;
-    //sizeof(num) - 1;
+    int cnt;
 
     while (1)
     {
