@@ -11,7 +11,19 @@ int main(){
     string line;
 
     while (getline(data222,line)){
-        cout << line << endl;
+        //cout << line << endl;
+
+        string first = line.substr(0, line.find(" "));
+        string second = line.substr(line.find(" ")+1, line.find(" "));
+        string thrid = line.substr(first.length() + second.length() + 2);
+
+        cout << "first :" << first << endl;
+        cout << "second :" << second << endl;
+        cout << "thrid :" << thrid << endl;
+        cout << endl;
+
     }
+
+    data222.close();
 
 }
