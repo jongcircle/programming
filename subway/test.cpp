@@ -21,9 +21,13 @@ int main(){
         cout << "second :" << second << endl;
         cout << "thrid :" << thrid << endl;
         cout << endl;
+        
+        string *a = new string;
+        *a = first;
 
     }
 
+    
     data222.close();
 
 }
