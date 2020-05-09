@@ -15,11 +15,11 @@ int main(){
 
         string first = line.substr(0, line.find(" "));
         string second = line.substr(line.find(" ")+1, line.find(" "));
-        string thrid = line.substr(first.length() + second.length() + 2);
+        string third = line.substr(first.length() + second.length() + 2);
 
         cout << "first :" << first << endl;
         cout << "second :" << second << endl;
-        cout << "thrid :" << thrid << endl;
+        cout << "third :" << third << endl;
         cout << endl;
         
         string *a = new string;
@@ -27,7 +27,18 @@ int main(){
 
     }
 
+    while (getline(data222, line))
+    {
+        string first = line.substr(0, line.find(" "));
+        string second = line.substr(line.find(" ")+1, line.find(" "));
+        string third = line.substr(first.length() + second.length() + 2);    
+
+        cout << first << second << third;
+    }
+
+
     
     data222.close();
+
 
 }

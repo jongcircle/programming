@@ -8,12 +8,13 @@
 
 using namespace std;
 
-//typedef pair<Vertex*, int> edge;
+class Vertex;
+
+typedef pair<Vertex*, int> edge;
 
 class Vertex{
-
+public:
     string name, id, line;
-    typedef pair<Vertex*, int> edge;
     vector<edge> edgelist;
 
     Vertex(){
@@ -37,15 +38,14 @@ int main(){
     data.open("data.txt");    
 
     //vector<Vertex> station;
-    Vertex a = Vertex();
     
-
+    map<string, Vertex *> graph_id;
+    map<string, Vertex *> graph_name;
 
     string line;
 
     while(getline(data,line))
     {
-        int i = 0;
         // if "" break
         
         
@@ -54,20 +54,28 @@ int main(){
         //istringstream iss;  이거 어떻게 써야하지
         string first = line.substr(0, line.find(" "));                      // id
         string second = line.substr(line.find(" ")+1, line.find(" "));      // 이름
-        string thrid = line.substr(first.length() + second.length() + 2);   // 몇호선
-        
+        string third = line.substr(first.length() + second.length() + 2);   // 몇호선
         // map (id, name, line)
-        map<string, Vertex> a;
-
-
-        i++;
+        Vertex *temp = new Vertex(second, first, third);
+        graph_id[first] = temp;
+        graph_id["11"] = temp;
+        graph_name[second] = temp;
+        cout << graph_id["11"] -> id <<endl;
     } 
 
-    data.close();
+
+    cout << graph_id["11"]->id;
 
     //while // edge
+    //while (/* condition */)
+    {
+        /* code */
+    }
     
 
+
+    
+    data.close();
 
     // dijkstra
 
