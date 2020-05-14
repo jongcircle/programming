@@ -1,5 +1,6 @@
 #include <iostream>
 #include <fstream>
+#include <sstream>
 
 using namespace std;
 
@@ -11,30 +12,19 @@ int main(){
     string line;
 
     while (getline(data222,line)){
+        if (line.compare("\n") == 0) break;
         //cout << line << endl;
-
-        string first = line.substr(0, line.find(" "));
-        string second = line.substr(line.find(" ")+1, line.find(" "));
-        string third = line.substr(first.length() + second.length() + 2);
-
-        cout << "first :" << first << endl;
-        cout << "second :" << second << endl;
-        cout << "third :" << third << endl;
+        istringstream iss (line);
+        string second, first, third;
+        iss >> second >> first >> third;
         cout << endl;
-        
-        string *a = new string;
-        *a = first;
+        cout << second << first << third;
 
     }
 
-    while (getline(data222, line))
-    {
-        string first = line.substr(0, line.find(" "));
-        string second = line.substr(line.find(" ")+1, line.find(" "));
-        string third = line.substr(first.length() + second.length() + 2);    
-
-        cout << first << second << third;
-    }
+    
+    
+    
 
 
     
