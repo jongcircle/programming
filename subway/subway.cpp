@@ -107,22 +107,25 @@ int main(){
             edge temp = pq.top();           // 가장 작은거 (뽑은거)
             pq.pop();
 
+            if (temp.first->visited == true) continue;
+
             cout << "역이름 : " << temp.first->name << "  현재까지거리 : " << temp.second << endl;
 
-            graph_name[temp.first->name]->visited = true;       // 정복했다고 표시
+            temp.first->visited = true;       // 정복했다고 표시
 
-            int d = temp.second;
 
             for (int i = 0; i < temp.first->edgelist.size(); i++)
             {
-                int w = temp.first->edgelist[i].second;     // 지금보고있는 vertex의 dist
+                edge w = temp.first->edgelist[i];     // 지금보고있는 vertex의 페어 vertex*, dist
 
-                if (temp.first->edgelist[i].first->visited == false || d + w < temp.first->edgelist[i].first->dist)
-                {
-                    temp.first->edgelist[i].first->dist = d + w;
-                    pq.push(edge(temp.first->edgelist[i].first, temp.first->edgelist[i].first->dist));
+                if (w.first->dist == 0){
+                    pq.push(edge(w.first, w.second));
+                    continue;
                 }
-                
+                else if (temp.second + w.second < w.first->dist) {
+                    w.first->dist = temp.second + w.second;
+                    pq.push(edge(w.first, w.first->dist));
+                }
                
             }
         }
