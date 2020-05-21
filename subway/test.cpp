@@ -17,9 +17,10 @@ int main(){
         istringstream iss (line);
         string second, first, third;
         iss >> second >> first >> third;
-        cout << endl;
-        cout << second << first << third;
-
+        cout << second << endl;
+        //cout << second << first << third;
+        second += "2";
+        cout << "second : " << second << endl;
     }
 
     
